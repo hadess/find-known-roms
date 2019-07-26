@@ -145,8 +145,6 @@ for filename, attr in dirtree(db_path) do
 	end
 end
 
--- print(inspect.inspect(db))
-
 -- 3. For each file in the directory, and try to look it up
 print ('Checking files in "' .. rom_path .. '" against databases')
 for filename, attr in dirtree(rom_path) do
