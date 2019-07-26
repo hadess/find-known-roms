@@ -49,6 +49,10 @@ $ find-known-roms
 Only supports the ClrMamePro format. [Other formats](https://github.com/SabreTools/SabreTools/wiki/DAT-File-Formats)
 exist, so supporting them might be nice. Send patches.
 
+## Uses
+
+This was used to find [30 hidden games](https://twitter.com/Micro_Repairs/status/1154841219358498818) in one Sega Ages 2500 compilation.
+
 ## Copyright
 
 GPLv3 for everything except the files in lib/. See their header for copyright information.
