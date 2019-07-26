@@ -139,6 +139,7 @@ print ('Loading databases from ' .. db_path)
 local db = {}
 for filename, attr in dirtree(db_path) do
 	if ends_with(filename, '.dat') then
+		print ('Loading database "' .. filename .. '"')
 		local dat, dat_name = parse_dat(filename)
 		db[dat_name] = dat
 	end
