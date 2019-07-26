@@ -81,7 +81,7 @@ end
 local function parse_dat(path)
 	local dat = {}
 	local contents = read_all(path)
-	local dat_name = contents:match('clrmamepro.-%(.-name.-"(.-)".-%)')
+	local dat_name = contents:match('clrmamepro.-%(.-name.-"(.-)".-%)') or error('Could not parse dat from "' .. path .. '"')
 	for game_str in contents:gmatch('game %(.-sha1.-%).-%)') do
 		local game = parse_dat_game(game_str)
 		dat[game.sha1] = game
