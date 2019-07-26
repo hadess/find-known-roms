@@ -72,7 +72,6 @@ end
 local function parse_dat_game(game_str)
 	local game = {}
 	game.name = game_str:match('name.-"(.-)"')
-	game.size = tonumber(game_str:match('size (%d+)')) or error('Could not parse size in ' .. game_str)
 	game.sha1 = game_str:match('sha1 (%w+)'):lower() or error('Could not parse sha1 in ' .. game_str)
 
 	return game

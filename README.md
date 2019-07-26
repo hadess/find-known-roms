@@ -44,10 +44,6 @@ Look for ROMs in the current directory with databases installed in `~/.local/sha
 $ find-known-roms
 ```
 
-## Known problems
-
-Some `libretro-database` databases can't be parsed.
-
 ## Copyright
 
 GPLv3 for everything except the files in lib/. See their header for copyright information.
