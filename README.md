@@ -44,6 +44,11 @@ Look for ROMs in the current directory with databases installed in `~/.local/sha
 $ find-known-roms
 ```
 
+## Limitations
+
+Only supports the ClrMamePro format. [Other formats](https://github.com/SabreTools/SabreTools/wiki/DAT-File-Formats)
+exist, so supporting them might be nice. Send patches.
+
 ## Copyright
 
 GPLv3 for everything except the files in lib/. See their header for copyright information.
