@@ -16,6 +16,7 @@ Found "Phantasy Star II - Kinds's Adventure (Japan) (SegaNet)" in "ps2tkind.sgd"
 
 - lfs (called `lua-filesystem` in Fedora)
 - lua-posix
+- [lua-amalg](https://github.com/siffiejoe/lua-amalg) (to create the stand-alone binary)
 
 And a directory containing ROM `.dat` files in the ClrMamePro format,
 such as a checkout of [libretro-database](https://github.com/libretro/libretro-database),
