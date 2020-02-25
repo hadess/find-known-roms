@@ -113,6 +113,10 @@ local db_path = nil
 local rom_path = nil
 local options = {}
 for k, v in ipairs(arg) do
+	if v == '-h' or v == '--help' then
+		usage()
+		return 1
+	end
 	if not rom_path then
 		rom_path = v
 	elseif not db_path then
