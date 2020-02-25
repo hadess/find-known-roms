@@ -143,7 +143,7 @@ end
 print ('Loading databases from ' .. db_path)
 local db = {}
 for filename, attr in dirtree(db_path) do
-	if ends_with(filename, '.dat') then
+	if attr.mode == 'file' and ends_with(filename, '.dat') then
 		print ('Loading database "' .. filename .. '"')
 		local dat, dat_name = parse_dat(filename)
 		db[dat_name] = dat
@@ -153,16 +153,20 @@ end
 -- 3. For each file in the directory, and try to look it up
 print ('Checking files in "' .. rom_path .. '" against databases')
 for filename, attr in dirtree(rom_path) do
-	-- SHA1 for the filename
-	local sha1 = sha1_file_ext(filename):lower()
-	-- print ('Looking for ' .. sha1 .. ' from "' .. filename .. '"')
-	for _,dat in pairs(db) do
-		if dat[sha1] ~= nil then
-			local game = dat[sha1]
-			local relative = filename:sub(#rom_path)
-			if relative:sub(1, 1) == '/' then relative = relative:sub(2) end
-			print ('Found "' .. game.name .. '" in "' .. relative .. '"')
-			break
+	if attr.mode == 'file' then
+		-- SHA1 for the filename
+		local sha1 = sha1_file_ext(filename):lower()
+		-- print ('Looking for ' .. sha1 .. ' from "' .. filename .. '"')
+		for _,dat in pairs(db) do
+			if dat[sha1] ~= nil then
+				local game = dat[sha1]
+				local relative = filename:sub(#rom_path)
+				if relative:sub(1, 1) == '/' then relative = relative:sub(2) end
+				print ('Found "' .. game.name .. '" in "' .. relative .. '"')
+				break
+			end
 		end
+	else
+		-- print ('Skipping ' .. attr.mode .. ' ' .. filename)
 	end
 end
